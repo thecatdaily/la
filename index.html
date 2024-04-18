@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baobao.la - 是寶寶啦 - You are what you love,not what loves you.</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      position: relative; /* 添加相对定位 */
+    }
+
+    .slide h1 {
+      position: absolute;
+      bottom: 10px; /* 调整文字距离底部的位置 */
+      left: 10px; /* 调整文字距离左侧的位置 */
+      color: #808080;
+      font-size: 0.5rem;
+    }
+
+    .site-info {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+      color: #333;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide" style="background-image: url('https://www.pinprestige.com/sg/wp-content/uploads/sites/2/2019/06/Gui-Lun-Mei.jpg');"><h1>桂纶镁女士</h1></div>
+      <div class="slide" style="background-image: url('https://verse-static-1.azureedge.net/storage/app/media/uploaded-files/20a08176-1-min.jpg');"><h1>桂纶镁女士</h1></div>
+      <div class="slide" style="background-image: url('https://pic.cgsop.com/wp-content/uploads/2022/09/1663589079-b2c46fbe3685657.jpg');"><h1>桂纶镁女士</h1></div>
+      <div class="slide" style="background-image: url('https://tx-free-imgs.acfun.cn/o_1e3pdgeh1vio15al174j1eocuom0.jpeg?imageslim');"><h1>回家的路V 2001.06.04</h1></div>
+      <div class="slide" style="background-image: url('https://baobao.la/images/bg2.jpg');"><h1>回家的那天 2023.07.02</h1></div>
+      <div class="slide" style="background-image: url('https://baobao.la/images/bg3.jpg');"><h1>时间在赛跑 2023.01.12</h1></div>
+    </div>
+  </div>
+
+  <div class="site-info">
+    <p>𝘊𝘰𝘱𝘺𝘳𝘪𝘨𝘩𝘵 © 𝘣𝘢𝘰𝘣𝘢𝘰.𝘭𝘢 𝘈𝘭𝘭 𝘙𝘪𝘨𝘩𝘵𝘴 𝘙𝘦𝘴𝘦𝘳𝘷𝘦𝘥.</p>
+    <p><a href="https://inmirror.taobao.com/" target="_blank">𝑺𝒕𝒐𝒓𝒆</a> / <a href="https://www.douban.com/people/doublebao/" target="_blank">𝑫𝒐𝒖𝒃𝒂𝒏</a> / <a href="mailto:4@baobao.la">𝑴𝒂𝒊𝒍</a></p>
+  </div>
+
+<script>
+    // 自适应全屏
+    function resizeSlider() {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(slide => {
+        slide.style.height = `${window.innerHeight}px`;
+      });
+    }
+
+    window.addEventListener('resize', resizeSlider);
+    resizeSlider();
+
+    // 图片轮播
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slider = document.querySelector('.slider');
+
+    function nextSlide() {
+      const previousSlide = currentSlide;
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      // 在下一张幻灯片之前设置透明度为0
+      slides[currentSlide].style.opacity = '0';
+      slides[currentSlide].classList.add('active');
+
+      // 淡入当前幻灯片
+      fadeIn(slides[currentSlide]);
+
+      // 淡出上一张幻灯片
+      fadeOut(slides[previousSlide]);
+
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function fadeIn(element) {
+      let opacity = 0;
+      const interval = setInterval(() => {
+        opacity += 0.02;
+        element.style.opacity = opacity;
+        if (opacity >= 1) {
+          clearInterval(interval);
+        }
+      }, 10);
+    }
+
+    function fadeOut(element) {
+      let opacity = 1;
+      const interval = setInterval(() => {
+        opacity -= 0.02;
+        element.style.opacity = opacity;
+        if (opacity <= 0) {
+          clearInterval(interval);
+          element.classList.remove('active');
+        }
+      }, 10);
+    }
+
+    setInterval(nextSlide, 4500);
+</script>
+</body>
+</html>
