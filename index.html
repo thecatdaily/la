@@ -45,13 +45,16 @@
       position: relative; /* 添加相对定位 */
     }
 
-    .slide h1 {
-      position: absolute;
-      bottom: 10px; /* 调整文字距离底部的位置 */
-      left: 10px; /* 调整文字距离左侧的位置 */
-      color: #808080;
-      font-size: 0.5rem;
-    }
+.slide h1 {
+  position: absolute;
+  bottom: 17px; /* 保持文字在底部的位置 */
+  left: 50%; /* 向左移动50%，然后使用transform进行居中 */
+  transform: translateX(-50%); /* 使文字水平居中 */
+  color: #808080;
+  font-size: 1rem;
+  text-align: center; /* 确保文字在水平方向上居中 */
+  width: 100%; /* 使标题宽度为100%，确保能够进行水平居中 */
+}
 
     .site-info {
       position: absolute;
@@ -66,12 +69,12 @@
 <body>
   <div class="slider-container">
     <div class="slider">
-      <div class="slide" style="background-image: url('https://raw.githubusercontent.com/thecatdaily/la/main/bg1.jpg');"><h1>回家的路</h1></div>
-      <div class="slide" style="background-image: url('https://raw.githubusercontent.com/thecatdaily/la/main/bg2.jpg');"><h1>种地的人</h1></div>
-      <div class="slide" style="background-image: url('https://raw.githubusercontent.com/thecatdaily/la/main/bg3.jpg');"><h1>等长大的秧</h1></div>
-      <div class="slide" style="background-image: url('https://raw.githubusercontent.com/thecatdaily/la/main/bg4.jpg');"><h1>回家的人</h1></div>
-      <div class="slide" style="background-image: url('https://raw.githubusercontent.com/thecatdaily/la/main/bg5.jpg');"><h1>去向那百花深處</h1></div>
-      <div class="slide" style="background-image: url('https://raw.githubusercontent.com/thecatdaily/la/main/bg6.jpg');"><h1>夕陽回家路</h1></div>
+      <div class="slide" style="background-image: url('https://pic.datapipe.top/i/2024/04/23/qhxiyc.jpg');"><h1>回家的路</h1></div>
+      <div class="slide" style="background-image: url('https://pic.datapipe.top/i/2024/04/23/qhxgvu.jpg');"><h1>种地的人</h1></div>
+      <div class="slide" style="background-image: url('https://pic.datapipe.top/i/2024/04/23/qhxhtt.jpg');"><h1>等长大的秧</h1></div>
+      <div class="slide" style="background-image: url('https://pic.datapipe.top/i/2024/04/23/qhxpz3.jpg');"><h1>回家的人</h1></div>
+      <div class="slide" style="background-image: url('https://pic.datapipe.top/i/2024/04/23/qhxo6x.jpg');"><h1>去向那百花深處</h1></div>
+      <div class="slide" style="background-image: url('https://pic.datapipe.top/i/2024/04/23/qhxwhr.jpg');"><h1>夕陽回家路</h1></div>
     </div>
   </div>
 
